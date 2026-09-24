@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,
+    initial-scale=1.0,
+    maximum-scale=1.0,
+    user-scalable=no">
+
+  <meta name="theme-color" content="#000000">
+
+  <title>Future 2050</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css">
+</head>
+
+<body>
+
+  <!-- SPLASH -->
+  <div id="splash">
+
+    <div class="pulse"></div>
+
+    <h1>FUTURE 2050</h1>
+
+    <p>
+      NEURAL INTERFACE SYSTEM
+    </p>
+
+    <div class="boot">
+      INITIALIZING...
+    </div>
+
+  </div>
+
+
+  <!-- MAIN APP -->
+  <main
+    id="main"
+    style="display:none;">
+
+    <header class="app-header">
+
+      <div>
+        <div class="mini">
+          FUTURE SYSTEM
+        </div>
+
+        <h1 class="title">
+          FUTURE 2050
+        </h1>
+      </div>
+
+      <div
+        id="connection"
+        class="connection">
+        OFFLINE
+      </div>
+
+    </header>
+
+
+    <div class="status-row">
+
+      <div
+        id="status"
+        class="status">
+
+        NEURAL LINK: ACTIVE ●
+
+      </div>
+
+      <div
+        id="clock"
+        class="clock">
+
+        00:00:00
+
+      </div>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+
+    <section class="dashboard">
+
+      <div class="dash-card">
+
+        <span class="dash-label">
+          FEATURES
+        </span>
+
+        <strong id="totalFeatures">
+          18
+        </strong>
+
+      </div>
+
+
+      <div class="dash-card">
+
+        <span class="dash-label">
+          FAVORITES
+        </span>
+
+        <strong id="favoriteCount">
+          0
+        </strong>
+
+      </div>
+
+
+      <div class="dash-card">
+
+        <span class="dash-label">
+          SYSTEM
+        </span>
+
+        <strong class="online-text">
+          READY
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-wrap">
+
+      <span class="search-icon">
+        ⌕
+      </span>
+
+      <input
+        type="text"
+        id="search"
+        placeholder="Search future technology..."
+        autocomplete="off"
+        oninput="filterFeatures()">
+
+    </div>
+
+
+    <!-- FAVORITES BUTTON -->
+
+    <button
+      id="btnFav"
+      onclick="toggleFavFilter()">
+
+      ★ FAVORITES
+
+    </button>
+
+
+    <!-- FEATURE LIST -->
+
+    <section
+      id="featureList">
+    </section>
+
+  </main>
+
+
+  <!-- DEMO / DETAILS -->
+
+  <main
+    id="demo"
+    style="display:none;">
+
+    <div class="demo-top">
+
+      <button
+        class="back"
+        onclick="goBack()">
+
+        ← BACK
+
+      </button>
+
+      <span class="simulation-label">
+        SIMULATION MODE
+      </span>
+
+    </div>
+
+
+    <div class="demo-panel">
+
+      <div
+        id="demoId"
+        class="demo-id">
+      </div>
+
+
+      <h2 id="demoTitle">
+      </h2>
+
+
+      <p
+        id="demoHindi"
+        class="demo-hindi">
+      </p>
+
+
+      <p
+        id="demoDesc"
+        class="demo-desc">
+      </p>
+
+
+      <div class="simulation-zone">
+
+        <div
+          id="progress"
+          class="progress"
+          style="display:none;">
+        </div>
+
+
+        <p
+          id="demoStatus">
+
+          Ready to simulate
+
+        </p>
+
+      </div>
+
+
+      <button
+        id="btnStart"
+        onclick="startSimulation()">
+
+        START SIMULATION
+
+      </button>
+
+
+      <p class="disclaimer">
+
+        FUTURE TECHNOLOGY CONCEPT SIMULATION
+        <br>
+        This does not activate real BCI,
+        quantum, holographic or neural hardware.
+
+      </p>
+
+    </div>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+
+  <script>
+
+    // CLOCK
+
+    function updateClock() {
+
+      const clock =
+        document.getElementById("clock");
+
+      if (!clock) return;
+
+      const now =
+        new Date();
+
+      clock.innerText =
+        now.toLocaleTimeString(
+          [],
+          {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+          }
+        );
+
+    }
+
+    setInterval(
+      updateClock,
+      1000
+    );
+
+    updateClock();
+
+
+    // INTERNET STATUS
+
+    function updateConnection() {
+
+      const connection =
+        document.getElementById(
+          "connection"
+        );
+
+      if (!connection) return;
+
+
+      if (navigator.onLine) {
+
+        connection.innerText =
+          "● ONLINE";
+
+        connection.classList.add(
+          "is-online"
+        );
+
+      } else {
+
+        connection.innerText =
+          "● OFFLINE";
+
+        connection.classList.remove(
+          "is-online"
+        );
+
+      }
+
+    }
+
+
+    window.addEventListener(
+      "online",
+      updateConnection
+    );
+
+
+    window.addEventListener(
+      "offline",
+      updateConnection
+    );
+
+
+    updateConnection();
+
+  </script>
+
+</body>
+</html>
